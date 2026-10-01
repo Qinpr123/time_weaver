@@ -1,0 +1,12 @@
+node_modules/
+build/
+.npm-cache/
+.stage1-backup/
+/public/
+.env
+.stage1-*.py
+check-*.js
+check-*.sh
+hmr-client.js
+IMPLEMENTATION_SUMMARY.md
+NETWORK_ISSUE_SOLUTION.md

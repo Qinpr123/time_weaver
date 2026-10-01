@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 246 240; /* #F8F6F0 */
+    --foreground: 44 44 44; /* #2C2C2C */
+
+    --card: 255 255 255; /* #FFFFFF */
+    --card-foreground: 44 44 44; /* #2C2C2C */
+
+    --popover: 255 255 255; /* #FFFFFF */
+    --popover-foreground: 44 44 44; /* #2C2C2C */
+
+    --primary: 212 165 116; /* #D4A574 */
+    --primary-foreground: 255 255 255; /* #FFFFFF */
+
+    --secondary: 139 115 85; /* #8B7355 */
+    --secondary-foreground: 255 255 255; /* #FFFFFF */
+
+    --muted: 107 107 107; /* #6B6B6B */
+    --muted-foreground: 107 107 107; /* #6B6B6B */
+
+    --accent: 212 165 116; /* #D4A574 */
+    --accent-foreground: 255 255 255; /* #FFFFFF */
+
+    --destructive: 239 68 68; /* #EF4444 */
+    --destructive-foreground: 255 255 255; /* #FFFFFF */
+
+    --border: 231 229 228; /* #E7E5E4 */
+    --input: 231 229 228; /* #E7E5E4 */
+    --ring: 212 165 116; /* #D4A574 */
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 44 44 44; /* #2C2C2C */
+    --foreground: 248 246 240; /* #F8F6F0 */
+
+    --card: 44 44 44; /* #2C2C2C */
+    --card-foreground: 248 246 240; /* #F8F6F0 */
+
+    --popover: 44 44 44; /* #2C2C2C */
+    --popover-foreground: 248 246 240; /* #F8F6F0 */
+
+    --primary: 212 165 116; /* #D4A574 */
+    --primary-foreground: 44 44 44; /* #2C2C2C */
+
+    --secondary: 139 115 85; /* #8B7355 */
+    --secondary-foreground: 44 44 44; /* #2C2C2C */
+
+    --muted: 107 107 107; /* #6B6B6B */
+    --muted-foreground: 107 107 107; /* #6B6B6B */
+
+    --accent: 212 165 116; /* #D4A574 */
+    --accent-foreground: 44 44 44; /* #2C2C2C */
+
+    --destructive: 239 68 68; /* #EF4444 */
+    --destructive-foreground: 248 246 240; /* #F8F6F0 */
+
+    --border: 82 82 82; /* #525252 */
+    --input: 82 82 82; /* #525252 */
+    --ring: 212 165 116; /* #D4A574 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif SC', serif;
+  }
+}
+
+/* 纸质纹理背景效果 */
+.paper-texture {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 165, 116, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 115, 85, 0.05) 0%, transparent 50%);
+  background-size: 100px 100px;
+}
+
+/* 温暖阴影效果 */
+.warm-shadow {
+  box-shadow: 
+    0 4px 6px -1px rgba(212, 165, 116, 0.1),
+    0 2px 4px -1px rgba(212, 165, 116, 0.06);
+}
+
+.warm-shadow-lg {
+  box-shadow: 
+    0 10px 15px -3px rgba(212, 165, 116, 0.1),
+    0 4px 6px -2px rgba(212, 165, 116, 0.05);
+}
+
+/* 悬停效果 */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 20px 25px -5px rgba(212, 165, 116, 0.1),
+    0 10px 10px -5px rgba(212, 165, 116, 0.04);
+}
+
+/* 点击效果 */
+.active-press {
+  transition: transform 0.1s ease;
+}
+
+.active-press:active {
+  transform: scale(0.98);
+}
+
+/* 装饰元素 */
+.corner-decoration {
+  position: relative;
+}
+
+.corner-decoration::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid rgb(212, 165, 116);
+  border-left: 2px solid rgb(212, 165, 116);
+  border-top-left-radius: 0.75rem;
+}
+
+.corner-decoration::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid rgb(212, 165, 116);
+  border-right: 2px solid rgb(212, 165, 116);
+  border-top-right-radius: 0.75rem;
+}
+
+/* 拍立得照片风格 */
+.polaroid-frame {
+  background: white;
+  padding: 1rem;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transform: rotate(-1deg);
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* 毛玻璃效果 */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 时间线装饰 */
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  background: rgb(212, 165, 116);
+  border-radius: 50%;
+  position: relative;
+}
+
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: rgba(212, 165, 116, 0.3);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba(212, 165, 116, 0.1);
+  color: rgb(139, 115, 85);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: rgba(212, 165, 116, 0.2);
+  transform: scale(1.05);
+}
+
+/*
+  Sonner 默认给每个 [data-button] 都设 margin-left: auto，
+  导致「取消 / 放弃」「取消 / 删除」等确认按钮被拉开。
+  仅让第一个按钮吃掉剩余空间，后续按钮紧贴排列。
+  文案与按钮保持同一行；窄屏与宽屏使用同一 toast 宽度。
+*/
+[data-sonner-toast][data-styled='true'] {
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+[data-sonner-toast][data-styled='true'] [data-content] {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+[data-sonner-toast][data-styled='true']:has([data-button]) [data-title] {
+  white-space: nowrap;
+}
+
+[data-sonner-toast][data-styled='true'] [data-button] {
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+}
+
+[data-sonner-toast][data-styled='true'] [data-button]:first-of-type {
+  margin-left: auto !important;
+}
+
+/* 覆盖 Sonner 窄屏 100% 宽，与宽屏同为 --width；保持居中且不覆盖竖直位置 */
+@media (max-width: 600px) {
+  [data-sonner-toaster][data-y-position='top'] {
+    top: var(--offset-top, 32px) !important;
+  }
+
+  [data-sonner-toaster][data-x-position='center'] {
+    left: 50% !important;
+    right: auto !important;
+    width: var(--width) !important;
+    max-width: calc(100vw - 24px);
+    /* 只做水平居中，避免 !important 吃掉其它 transform 时误伤竖直位置 */
+    transform: translateX(-50%) !important;
+  }
+
+  [data-sonner-toaster][data-x-position='center'][data-lifted='true'] {
+    transform: translate(-50%, -10px) !important;
+  }
+
+  [data-sonner-toaster][data-x-position='center'] [data-sonner-toast] {
+    left: 0 !important;
+    right: auto !important;
+    width: var(--width) !important;
+    max-width: 100%;
+  }
+}
+
+/* 触控设备：保持水平居中，不跟鼠标 hover 一样上抬 */
+@media (max-width: 600px) and (hover: none) and (pointer: coarse) {
+  [data-sonner-toaster][data-x-position='center'][data-lifted='true'] {
+    transform: translateX(-50%) !important;
+  }
+}
+
+/* 自定义滚动条样式 */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #F8F6F0;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #D4A574;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #8B7355;
+}
